@@ -152,3 +152,87 @@ The main branch points to commit C3, while the bugfix* branch is currently check
 The diagram shows that the bugfix commit has been moved and reapplied on top of the latest commit of the main branch, resulting in a straight, linear history. 
 
 The renaming of the commit to C2′ visually represents that the commit was recreated during the rebase process.
+
+
+
+# Level-2
+
+# 1.Detach yo' HEAD
+
+**Detach yo’ HEAD** means that you are no longer working on a branch.
+
+Normally, **HEAD** points to a branch like **main** or **bugFix**.
+In a detached HEAD state, **HEAD points directly to a commit** instead of a branch.
+
+This usually happens when you checkout a specific commit.
+
+In this state, you can look at old code or test something, but any new commit you make will not belong to a branch.
+
+If you switch to another branch, those commits can be lost unless you create a new branch.
+
+This helps us understand why staying on a branch is important when making changes.
+
+<img width="1918" height="913" alt="Screenshot 2025-12-22 222846" src="https://github.com/user-attachments/assets/6b07bb5d-8645-4e3f-9a43-f2981d5619a9" />
+
+# Command Executed
+
+```bash
+git checkout C4
+```
+
+This screenshot shows what happens when HEAD is detached in Git.
+
+The commits (C0, C1, C2, C3, C4) show the history of the project.
+
+At first, HEAD is normally connected to a branch like main or bugFix.
+
+When the command
+git checkout C4
+is used, Git moves HEAD directly to commit C4.
+
+Now, HEAD is not pointing to any branch, it is pointing only to that commit.
+
+The branches (main and bugFix) stay where they were and do not move.
+
+This state is called detached HEAD.
+
+It helps us understand how Git can look at any old commit without changing branch history.
+
+# 2.Relative Refs (^) 
+
+Remembering full commit hashes in Git is hard and annoying because they are very long.
+
+In real projects, you don’t see a picture of commits, so you use git log to find commit hashes.
+
+The good thing is, Git does not need the full hash.
+You can type only the first few characters, as long as they are unique.
+
+Still, using hashes is not very convenient.
+That’s why Git provides relative references.
+
+Relative references let you move around commits starting from something easy to remember, like HEAD or a branch name.
+
+There are two simple relative references:
+
+^ → moves one commit back
+
+~<number> → moves multiple commits back
+
+This makes it much easier to move through commit history without typing long hashes.
+
+<img width="1913" height="901" alt="Screenshot 2025-12-22 224122" src="https://github.com/user-attachments/assets/146ccdcc-2fc6-4a19-980c-bd397c1069f9" />
+
+# Commands Executed
+
+```bash
+git checkout bugFix
+```
+```
+git checkout C3
+```
+In these screenshot  
+Git checkout bugFix moves you to the bugFix branch.
+
+Git checkout C3 moves HEAD to commit C3, not to a branch, so this is called detached HEAD.
+
+The ^ symbol means go to the previous commit.
