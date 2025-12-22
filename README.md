@@ -5,7 +5,7 @@ This documentation contains the concepts of Learn Git Branching.
 # Learn Git Branching
 
 Learn Git Branching is an interactive, browser-based learning platform that helps users understand how Git works internally through real-time visual diagrams, covering concepts such as commits, branches, HEAD, merging, and rebasing.
-# Level-1
+# Level-1 [Introduction Sequence]
 # 1.Introduction to Git Commits
 
 ### **What is Git Commit?**
@@ -155,7 +155,7 @@ The renaming of the commit to C2′ visually represents that the commit was recr
 
 
 
-# Level-2
+# Level-2 [Ramping Up]
 
 # 1.Detach yo' HEAD
 
@@ -236,3 +236,74 @@ Git checkout bugFix moves you to the bugFix branch.
 Git checkout C3 moves HEAD to commit C3, not to a branch, so this is called detached HEAD.
 
 The ^ symbol means go to the previous commit.
+
+# 3.Relative Refs #2 (~) 
+
+The tilde (~) operator is used to move back multiple commits at once.
+
+Instead of using ^ again and again, ~ makes it easier and faster.
+
+The number after ~ tells Git how many commits to go back.
+
+<img width="1913" height="902" alt="image" src="https://github.com/user-attachments/assets/ef60c2d4-bc88-4e8d-99ee-24ec44f93b67" />
+
+# Commands Executed 
+```bash
+git checkout C1
+```
+```
+git branch -f bugFix C0
+```
+```
+git branch -f main C6
+```
+
+These screenshot shows
+Git checkout C1 moves you directly to commit C1.
+
+Git branch -f bugFix C0 forces the bugFix branch to point to commit C0.
+
+Git branch -f main C6 forces the main branch to point to commit C6.
+
+# 4.Reversing Changes in Git
+
+When you mess up in Git, you have two main ways to fix it:
+
+1.git reset – “Go back in time.”
+
+It’s like saying, “Forget I ever made this change.”
+
+Can remove your files or commits completely.
+
+Be careful, because once it’s gone, it might be hard to get back.
+
+2.git revert – “Make a new fix.”
+
+It’s like saying, “I made a mistake, so here’s a new commit that undoes it.”
+
+Your history stays safe.
+
+<img width="1910" height="917" alt="image" src="https://github.com/user-attachments/assets/483284eb-c0d5-437b-87c3-30eac9675869" />
+
+# Commands Executed
+
+```bash
+git checkout local
+```
+```
+git reset --hard C1
+```
+```
+git checkout pushed
+```
+```
+git revert pushed
+```
+
+Git checkout local moves you to the local branch.
+
+Git reset --hard C1 moves the branch back to commit C1 and removes later changes.
+
+Git checkout pushed switches you to the pushed branch.
+
+Git revert pushed creates a new commit that undoes the changes made in the pushed commit.
