@@ -333,7 +333,7 @@ It lets you fix and arrange your past commits in a clean and simple way before s
 
 <img width="1919" height="914" alt="Screenshot 2025-12-23 113412" src="https://github.com/user-attachments/assets/e6b95ac8-4e03-4534-b593-20ce5afae588" />
 
-# Cammand Executed 
+# Command Executed 
 
 ```bash
 git rebase -i HEAD~4
