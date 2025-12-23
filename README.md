@@ -307,3 +307,38 @@ Git reset --hard C1 moves the branch back to commit C1 and removes later changes
 Git checkout pushed switches you to the pushed branch.
 
 Git revert pushed creates a new commit that undoes the changes made in the pushed commit.
+
+
+# Level-3 [Moving Work Around]
+
+# 1.Cherry-pick Intro
+
+Git cherry-pick means taking one specific commit from another branch and applying it to your current branch.
+
+<img width="1918" height="915" alt="Screenshot 2025-12-23 110837" src="https://github.com/user-attachments/assets/121b9f28-2dd2-4b58-9991-ef948fde5373" />
+
+# Command Executed 
+
+```bash
+git cherry-pick C3 C4 C7
+```
+C3- Git copies the changes from commit C3 and adds them to main as a new commit.
+
+C4- Then Git copies the changes from commit C4 and adds them after C3 on main.
+
+C7- Finally, Git copies the changes from commit C7 and adds them after C4 on main.
+
+# 2.Interactive Rebase Intro
+It lets you fix and arrange your past commits in a clean and simple way before saving them.
+
+<img width="1919" height="914" alt="Screenshot 2025-12-23 113412" src="https://github.com/user-attachments/assets/e6b95ac8-4e03-4534-b593-20ce5afae588" />
+
+# Cammand Executed 
+
+```bash
+git rebase -i HEAD~4
+```
+
+HEAD~4 → go back 4 commits from where you are now
+
+rebase -i → open an interactive screen to edit those commits
